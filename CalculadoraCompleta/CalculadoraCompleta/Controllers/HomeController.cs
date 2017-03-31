@@ -44,10 +44,26 @@ namespace CalculadoraCompleta.Controllers
                 case ",":
                     if (!visor.Contains(",")) visor += ",";
                     break;
+                    
+
                 case "C":
                     visor = "0";
                     break;
 
+                //----------------------------
+                case ":":
+                if((String)Session["operador"] == "")
+                    {
+                        //guardar o valor do operando
+                        Session["operando"] = visor;
+                        Session["operador"] = bt;
+                        visor = "0";
+                    }
+                    else
+                    {
+                        //fazer conta
+                    }
+                    break;
             }
 
             // enviar dados para a view
